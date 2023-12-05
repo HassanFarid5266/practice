@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Scroll Animation</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        height: 200vh;
+        /* Make the body taller to enable scrolling */
+    }
+
+    .box {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+    }
+</style>
+
+<body>
+    <div class="box" id="animatedBox"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var animatedBox = document.getElementById('animatedBox');
+
+            window.addEventListener('scroll', function () {
+                var scrollPosition = window.scrollY;
+
+                // Adjust this value based on when you want the animation to start
+                var triggerPosition = 100;
+
+                if (scrollPosition > triggerPosition) {
+                    animatedBox.style.opacity = 1;
+                } else {
+                    animatedBox.style.opacity = 0;
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
